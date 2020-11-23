@@ -1,0 +1,112 @@
+var letters = ["c", "n", "o", "u"]
+
+let button1, button2;
+let backgrounds;
+let letterColor = "white";
+let borderColor = "blue"
+
+function setup() {
+  createCanvas(400, 400);
+  textSize(150);
+  background("grey");
+  
+  var rand = int(random(0, 4));
+  strokeWeight(4);
+  stroke(borderColor)
+  fill(letterColor);
+  text(letters[rand], 150, 240);
+   
+  noStroke();
+  fill(borderColor);
+  rect(0, 0, 50, 400);
+  noStroke();
+  fill(borderColor);
+  rect(350, 0, 50, 400);
+  noStroke();
+  fill(borderColor);
+  rect(0, 0, 400, 50);
+  noStroke();
+  fill(borderColor);
+  rect(0, 350, 400, 50);
+  
+  fill("white");
+  textSize(20);
+  text("Trace the Letter", 125, 90);
+  text("By Clicking and Dragging!", 85, 110);
+  //text("When finsihed, click the button.", 60, 280);
+  
+  button1 = createButton('Play Again');
+  button1.position(120, 300);
+  button1.mousePressed(restart);
+  
+  button2 = createButton('Back');
+  button2.position(220, 300);
+  button2.mousePressed(back);
+}
+
+function back() {
+  window.open("https://editor.p5js.org/Sai-Krishna7/present/atdh9MXVf")
+}
+
+function mouseDragged(){
+  fill("white");
+  textSize(20);
+  text("When finished, click back", 90, 280);
+  if (mouseX > 153 && mouseX < 230 && mouseY >160 && mouseY < 242){
+    fill("green");   
+    rect(0, 0, 50, 400);
+    noStroke();
+    fill("green");
+    rect(350, 0, 50, 400);
+    noStroke();
+    fill("green");
+    rect(0, 0, 400, 50);
+    noStroke();
+    fill("green");
+    rect(0, 350, 400, 50);
+    } else {
+    fill("red");
+    rect(0, 0, 50, 400);
+    noStroke();
+    fill("red");
+    rect(350, 0, 50, 400);
+    noStroke();
+    fill("red");
+    rect(0, 0, 400, 50);
+    noStroke();
+    fill("red");
+    rect(0, 350, 400, 50);
+  }
+}
+
+function mouseReleased(){
+ if (mouseX > 153 && mouseX < 230 && mouseY >160 && mouseY < 242 && mouseIsPressed == true){
+    fill("green");
+    rect(0, 0, 50, 400);
+    noStroke();
+    fill("green");
+    rect(350, 0, 50, 400);
+    noStroke();
+    fill("green");
+    rect(0, 0, 400, 50);
+    noStroke();
+    fill("green");
+    rect(0, 350, 400, 50);
+    } else {
+    fill(borderColor);
+    rect(0, 0, 50, 400);
+    noStroke();
+    fill(borderColor);
+    rect(350, 0, 50, 400);
+    noStroke();
+    fill(borderColor);
+    rect(0, 0, 400, 50);
+    noStroke();
+    fill(borderColor);
+    rect(0, 350, 400, 50);
+  }
+}
+
+function restart(){
+  setup();
+}
