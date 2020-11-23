@@ -1,0 +1,127 @@
+let value = 0;
+let shapes = 0;
+let score = 0;
+let button2;
+
+function setup() {
+  createCanvas(400, 400);
+  textSize(22);
+  textAlign(CENTER, CENTER);
+  button2 = createButton('Quit');
+  button2.size(60,30);
+  button2.position(50, 50);
+  button2.mousePressed(back);
+  button2.hide();
+
+}
+  
+function back() {
+  window.open("https://editor.p5js.org/Sai-Krishna7/present/atdh9MXVf")
+}
+
+function mousePressed() {
+  
+}
+
+function draw() {
+  background(220);
+
+  fill('blue');
+  rect(0,0,400,10);
+  rect(0,0,10,400);
+  rect(390,0,10,400);
+  rect(0,390,400,10);
+  fill('light grey');
+  rect(150,200,100,30);
+    fill('black');
+  text('Begin',30,30,340,370);
+    if (value === 0 && mouseX > 150 && mouseX < 250 && mouseY > 190 && mouseY < 250 && mouseIsPressed == true) {
+    value = 1;
+
+  }
+  
+  
+  if (value == 1){
+    clear();
+    background(220);
+    button2.show();
+
+  fill('blue');
+  rect(0,0,400,10);
+  rect(0,0,10,400);
+  rect(390,0,10,400);
+  rect(0,390,400,10); 
+  fill('black');
+  text("Score:", 300, 40)
+  text(score, 300, 70)
+    
+  //Start Building Block Game Here
+    
+    fill('light grey');
+    strokeWeight(3);
+    triangle(300,300, 100, 300, 200, 100);
+    strokeWeight(1);
+    
+    triangle(150,200,250,200,200,300);
+    fill('black');
+    text("1", 200, 235);
+    text("2", 200, 165);
+    text("3", 150, 265);
+    text("3", 250, 265);
+    
+    if (shapes == 0) {
+      fill('red')
+      triangle(mouseX, mouseY + 100, mouseX - 50, mouseY , mouseX + 50, mouseY);
+      
+      if (mouseX > 190 && mouseX < 210 && mouseY > 190 && mouseY < 210 && mouseIsPressed == true){
+        shapes = 1;
+      }
+    } 
+    if (shapes == 1) {
+      fill('red');
+        triangle(150,200,250,200,200,300);
+        
+      fill('blue');
+      triangle(mouseX, mouseY, mouseX - 50 , mouseY + 100, mouseX + 50, mouseY + 100);
+      if (mouseX > 190 && mouseX < 210 && mouseY > 90 && mouseY < 110 && mouseIsPressed == true){
+        shapes = 2;
+      }
+    }
+    if (shapes == 2) {
+        fill('red');
+        triangle(150,200,250,200,200,300);
+      fill('blue');
+      triangle(200, 100, 150, 200, 250, 200)
+      
+      fill('green');
+      triangle(mouseX, mouseY, mouseX - 50 , mouseY + 100, mouseX + 50, mouseY + 100);
+      triangle(mouseX + 100, mouseY, mouseX + 50 , mouseY + 100, mouseX + 150, mouseY + 100);
+      if (mouseX > 140 && mouseX < 160 && mouseY > 190 && mouseY < 210 && mouseIsPressed == true){
+        shapes = 3;
+      }
+    }
+    
+    if (shapes == 3) {
+      fill('red');
+        triangle(150,200,250,200,200,300);
+      fill('blue');
+      triangle(200, 100, 150, 200, 250, 200);
+      fill('green');
+      triangle(100, 300, 150, 200, 200, 300);
+      triangle(200, 300, 250, 200, 300, 300);
+      
+      
+      fill('yellow');
+      text("Congrats! You did it!", 200, 320);
+      fill('white')
+      rect(125,340, 130, 35);
+      fill('black');
+      text("Play Again?", 190, 360);
+      if (mouseX > 100 && mouseX < 250 && mouseY > 330 && mouseY < 390 && mouseIsPressed == true)        {
+        shapes = 0;
+        score++;
+      }
+    }
+    
+  }
+}
